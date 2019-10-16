@@ -38,6 +38,10 @@ body {
     top: .7vh;
 }
 
+/* #psq_input:focus {
+    border-bottom: 2px solid rgb(0, 194, 145);
+} */
+
 #entrar {
     position: absolute;
     top: 1.6vh;
@@ -329,10 +333,32 @@ hr {
 
 /* CSS da página Cadastro */
 #div_cadastro {
+    padding-left: 3.5vw;
+    padding-top: 1.5vh;
+    background-color: rgb(255, 255, 255);
+    width: 25vw;
+    height: 59vh;
     position: absolute;
-    left: 41vw;
-    top: 5vh;
+    left: 37vw;
+    top: 18vh;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
+    opacity: .8;
+    box-shadow: 2px 2px 2px 2px rgba(11, 11, 11, 0.521);
+}
+
+#div_cadastro2 {
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    padding-top: 1.5vh;
+    background-color: rgb(255, 255, 255);
+    width: 25vw;
+    height: 75vh;
+    position: absolute;
+    left: 37vw;
+    top: 18vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    opacity: .8;
+    box-shadow: 2px 2px 2px 2px rgba(11, 11, 11, 0.521);
 }
 
 .input-container {
@@ -373,4 +399,199 @@ hr {
   
 .btn:hover {
     opacity: 1;
+}
+
+#ctd1 {
+    position: absolute;
+    top: 21vh;
+    left: 0;
+    width: 98.8vw;
+    height: 75vh;
+    background-color: rgb(0, 255, 179);
+}
+
+#ctd2 {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    position: absolute;
+    top: 148vh;
+    left: 0;
+    width: 98.8vw;
+    height: 70vh;
+    background-color: transparent;
+}
+
+.texto_box {
+    padding-bottom: 5px;
+    border-bottom: 1px solid grey;
+    width: 18vw;
+    outline: none;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+.texto_valido {
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(0, 216, 54);
+    width: 18vw;
+    outline: none;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+.texto_erro {
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(255, 112, 112);
+    width: 18vw;
+    outline: none;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+.texto_box input {
+    color: rgb(0, 0, 0);
+}
+#nome {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+}
+
+#email {
+    font-size: 16px;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#confirmar_email {
+    font-size: 16px;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#senha {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+}
+
+#confirmar_senha {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+}
+
+.placebranco::placeholder {
+    color: rgb(175, 175, 175);
+}
+
+#botao_proximo {
+    position: absolute;
+    left: 45.2vw;
+    top: 60vh;
+    height: 5vh;
+    width: 8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    background-color: rgb(0, 255, 179);
+    letter-spacing: 0.1em;
+    color: rgb(255, 255, 255);
+    border: 0.10em solid rgb(0, 199, 139);
+    z-index: 10;
+    transition: .2s ease-in-out;
+}
+#botao_proximo:hover {
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 192, 144);
+    background-color: rgb(0, 218, 152);
+    transition: background-color 0.5s, border-color 0.5s;
+    transition-timing-function: ease-out;
+    cursor: pointer;
+}
+
+#botao_cad {
+    position: absolute;
+    left: 45.2vw;
+    top: 80vh;
+    height: 5vh;
+    width: 8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    background-color: rgb(0, 255, 179);
+    letter-spacing: 0.1em;
+    color: rgb(255, 255, 255);
+    border: 0.10em solid rgb(0, 199, 139);
+    z-index: 10;
+    transition: .2s ease-in-out;
+}
+#botao_cad:hover {
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 192, 144);
+    background-color: rgb(0, 218, 152);
+    transition: background-color 0.5s, border-color 0.5s;
+    transition-timing-function: ease-out;
+    cursor: pointer;
+}
+
+#jatemconta {
+    position: absolute;
+    left: 43vw;
+    top: 67vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-size: 15px;
+    z-index: 999999999999999999999;
+}
+
+#jatemconta2 {
+    position: absolute;
+    left: 43vw;
+    top: 87vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-size: 15px;
+    z-index: 999999999999999999999;
+}
+
+#data_nascimento {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+}
+
+#data2 {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+}
+
+#jogo_favorito {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+    z-index: 999999999;
+}
+
+#termos a {
+color: rgb(0, 0, 175);
+list-style: none;
+text-decoration: none;
+}
+
+#termos a:hover {
+text-decoration: underline;
 }
