@@ -29,58 +29,100 @@
         <a id="ent" href="">Entrar</a> &nbsp;
     </div>
     <div id="cadastro">
-        <button id="btncadastrar">Cadastrar</button>
+        <a href="cadastrar.html">
+            <button id="btncadastrar">Cadastrar</button>
+        </a>
     </div>
     <form id="pesquisa" class="exemplo">
-        <input type="text" placeholder="Pesquisar..." name="pesquisar">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input id="psq_input" type="text" placeholder="Pesquisar..." name="pesquisar">
+        <button type="submit">
+            <i class="fa fa-search"></i>
+        </button>
     </form>
 
     <div id="inicio">
         <div id="menu">
             <ul>
-                <li><a href="">INÍCIO</a></li>
-                <li><a href="">PROJETOS</a></li>
-                <li><a href="">JOGOS</a></li>
-                <li><a href="">EQUIPE</a></li>
+                <li>
+                    <a href="inicio.html">INÍCIO</a>
+                </li>
+                <li>
+                    <a href="">PROJETOS</a>
+                </li>
+                <li>
+                    <a href="">JOGOS</a>
+                </li>
+                <li>
+                    <a href="">EQUIPE</a>
+                </li>
             </ul>
         </div>
     </div>
 
-    <div id="conteudo1">
-        <div id="div_cadastro">
-            <form action="/action_page.php">
-                <h2 align="center">Cadastre-se</h2>
-                <div class="input-container">
-                    <i class="fa fa-user icon"></i>
-                    <input class="input-field" type="text" placeholder="Nome de usuário" name="usrnm">
-                </div>
+    <div id="ctd1">
+        <img style="width: 98.8vw" src="https://images7.alphacoders.com/815/815765.jpg" alt="">
+        <div style="display: block" id="div_cadastro">
 
-                <div class="input-container">
-                    <i class="fa fa-envelope icon"></i>
-                    <input class="input-field" type="email" placeholder="Email" name="email">
-                </div>
+            <h2>Criar conta</h2>
+            <font size="2" color="grey">* campos obrigatórios</font>
+            <br><br>
+            <div id="inputnome" class="texto_box">
+                <input onkeyup="verificar_nome()" style="display: block" id="nome" type="text"
+                    placeholder="Nome de usuário*" autofocus>
+            </div>
+            <br>
+            <div id="inputemail" class="texto_box">
+                <input onkeyup="verificar_email()" id="email" type="email" style="display: block" placeholder="Email*">
 
-                <div class="input-container">
-                        <i class="fa fa-envelope icon"></i>
-                        <input class="input-field" type="email" placeholder="Confirme o email" name="email">
-                    </div>
+            </div>
+            <br>
+            <div onkeyup="confirmaremail()" id="emailverify" class="texto_box">
+                <input id="confirmar_email" style="display: block" type="email" placeholder="Confirme o email*">
+            </div>
+            <br>
+        </div>
+        <div style="display: none" id="div_cadastro2">
+            <h2>Criar conta</h2>
+            <font size="2" color="grey">* campos obrigatórios</font>
+            <br><br>
+            <div class="texto_box">
+                <input onkeyup="verificar()" style="display: block" id="senha" type="password" placeholder="Senha*">
+            </div>
+            <br>
+            <div class="texto_box">
+                <input id="confirmar_senha" type="password" style="display: block" placeholder="Confirme a senha*">
+            </div>
+            <br>
+            <div class="texto_box">
+                <input style="display: block" placeholder="Data de nascimento" onfocus="dataNasc()"
+                    id="data_nascimento">
+                <input style="display: none" id="data2" type="date">
+            </div>
+            <br>
+            <div class="texto_box">
+                <input style="display: block" id="jogo_favorito" type="text" placeholder="Jogo favorito">
+            </div>
+            <br><br>
+            <div style="display: block" id="concordar_termos">
+                <input type="checkbox">Concordo com os <b id="termos"><a href="">termos de serviço e política da
+                        empresa</a></b>
+            </div>
 
-                <div class="input-container">
-                    <i class="fa fa-key icon"></i>
-                    <input class="input-field" type="password" placeholder="Senha" name="psw">
-                </div>
+        </div>
 
-                <div class="input-container">
-                        <i class="fa fa-key icon"></i>
-                        <input class="input-field" type="password" placeholder="Confirme a senha" name="psw">
-                    </div>
+        <button style="display: block" onclick="proximo()" id="botao_proximo">Próximo</button>
+        <button style="display: none" id="botao_cad" onclick="cadastrar()">Cadastrar</button>
 
-                <button type="submit" class="btn">Cadastrar</button>
-            </form>
+        <br>
+        <div style="display: block" id="jatemconta">Já tem conta?
+            <a href="#">Entre aqui!</a>
+        </div>
+        <div style="display: none" id="jatemconta2">Já tem conta?
+            <a href="#">Entre aqui!</a>
         </div>
     </div>
-    <div id="conteudo2">
+
+    <div id="ctd2">
 
     </div>
     <!-- <hr id="quebra"> -->
@@ -88,3 +130,71 @@
 </body>
 
 </html>
+<script>
+
+    function verificar_nome() {
+        if (nome.value.length >= 3) {
+            inputnome.classList.remove("texto_box");
+            inputnome.classList.add("texto_valido");
+        } else {
+            inputnome.classList.remove("texto_valido");
+            inputnome.classList.add("texto_box");
+        }
+    }
+
+    function verificar_email() {
+        if (email.value.lenght >= 11 && email.value.indexOf('@') >= 0 && email.value.endsWith('.br') || email.value.endsWith('.com')) {
+            inputemail.classList.remove("texto_box");
+            inputemail.classList.add("texto_valido");
+        } else {
+            inputemail.classList.remove("texto_valido");
+            inputemail.classList.add("texto_box");
+        }
+        // no minimo 11 caracteres
+        // tem que conter @
+        // tem que conter .com
+    }
+    function confirmaremail() {
+        if (email.value == confirmar_email.value) {
+            emailverify.classList.remove("texto_box");
+            emailverify.classList.add("texto_valido");
+        } else {
+            emailverify.classList.remove("texto_valido");
+            emailverify.classList.add("texto_box");
+        }
+    }
+
+    function verificar_senha() {
+        // no minimo 8 caracteres
+        // tem que conter 1 numero
+    }
+
+    function proximo() {
+        if (inputnome.classList.contains("texto_valido") && inputemail.classList.contains("texto_valido")
+            && emailverify.classList.contains("texto_valido")) {
+            div_cadastro.style.display = "none";
+            div_cadastro2.style.display = "block";
+            nome.style.display = "none";
+            email.style.display = "none";
+            senha.style.display = "block";
+            confirmar_senha.style.display = "block";
+            botao_proximo.style.display = "none";
+            botao_cad.style.display = "block";
+            inputnome.classList.remove("texto_valido");
+            inputnome.classList.add("texto_box");
+            inputemail.classList.remove("texto_valido");
+            inputemail.classList.add("texto_box");
+            jatemconta.style.display = "none";
+            jatemconta2.style.display = "block";
+            concordar_termos.style.display = "block";
+        }
+    }
+
+    function dataNasc() {
+        data_nascimento.style.display = "none";
+        data2.style.display = "block";
+    }
+</script>
+
+<!-- var NOME = getElementById('nomedadiv')
+NOME.classList.contains(''); -->
