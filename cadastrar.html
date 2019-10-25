@@ -26,7 +26,7 @@
         </a>
     </div>
     <div id="entrar">
-        <a id="ent" href="">Entrar</a> &nbsp;
+        <a id="ent" href="entrar.html">Entrar</a> &nbsp;
     </div>
     <div id="cadastro">
         <a href="cadastrar.html">
@@ -64,20 +64,21 @@
         <div style="display: block" id="div_cadastro">
 
             <h2>Criar conta</h2>
-            <font size="2" color="grey">* campos obrigatórios</font>
-            <br><br>
+            <font size="2" color="grey">* campos obrigatórios</font><br><br>
             <div id="inputnome" class="texto_box">
                 <input onkeyup="verificar_nome()" style="display: block" id="nome" type="text"
                     placeholder="Nome de usuário*" autofocus>
             </div>
             <br>
             <div id="inputemail" class="texto_box">
-                <input onkeyup="verificar_email()" id="email" type="email" style="display: block" placeholder="Email*">
+                <input onkeyup="verificar_email()" id="email_texto" type="text" style="display: block"
+                    placeholder="Email*">
 
             </div>
             <br>
-            <div onkeyup="confirmaremail()" id="emailverify" class="texto_box">
-                <input id="confirmar_email" style="display: block" type="email" placeholder="Confirme o email*">
+            <div id="emailverify" class="texto_box">
+                <input onkeyup="confirmaremail()" id="confirmar_email" style="display: block" type="email"
+                    placeholder="Confirme o email*">
             </div>
             <br>
         </div>
@@ -85,12 +86,14 @@
             <h2>Criar conta</h2>
             <font size="2" color="grey">* campos obrigatórios</font>
             <br><br>
-            <div class="texto_box">
-                <input onkeyup="verificar()" style="display: block" id="senha" type="password" placeholder="Senha*">
+            <div id="div_senha" class="texto_box">
+                <input onkeyup="verificar_senha()" style="display: block" id="inputsenha" type="password"
+                    placeholder="Senha*">
             </div>
             <br>
-            <div class="texto_box">
-                <input id="confirmar_senha" type="password" style="display: block" placeholder="Confirme a senha*">
+            <div id="div_confirmarsenha" class="texto_box">
+                <input onkeyup="confirmsenha()" id="confirmar_senha" type="password" style="display: block"
+                    placeholder="Confirme a senha*">
             </div>
             <br>
             <div class="texto_box">
@@ -104,8 +107,10 @@
             </div>
             <br><br>
             <div style="display: block" id="concordar_termos">
-                <input type="checkbox">Concordo com os <b id="termos"><a href="">termos de serviço e política da
-                        empresa</a></b>
+                <input id="concordartermos" type="checkbox">
+                Concordo com os <b id="termos"><a href="termos.html">termos de serviço e política da
+                empresa</a></b>
+                <span style="text-align: center" id="texto_concordar"></span>
             </div>
 
         </div>
@@ -115,10 +120,10 @@
 
         <br>
         <div style="display: block" id="jatemconta">Já tem conta?
-            <a href="#">Entre aqui!</a>
+            <a href="entrar.html">Entre aqui!</a>
         </div>
         <div style="display: none" id="jatemconta2">Já tem conta?
-            <a href="#">Entre aqui!</a>
+            <a href="entrar.html">Entre aqui!</a>
         </div>
     </div>
 
@@ -133,7 +138,7 @@
 <script>
 
     function verificar_nome() {
-        if (nome.value.length >= 3) {
+        if (nome.value.length >= 5) {
             inputnome.classList.remove("texto_box");
             inputnome.classList.add("texto_valido");
         } else {
@@ -143,7 +148,12 @@
     }
 
     function verificar_email() {
-        if (email.value.lenght >= 11 && email.value.indexOf('@') >= 0 && email.value.endsWith('.br') || email.value.endsWith('.com')) {
+        // console.log('email_texto.value.lenght >= 11', email_texto.value.length >= 11);
+        // console.log('email_texto.value.indexOf(@) >= 0', email_texto.value.indexOf('@') >= 0);
+        // console.log('email_texto.value.endsWith(.br)', email_texto.value.endsWith('.br'));
+        // console.log('email_texto.value.endsWith(.com)', email_texto.value.endsWith('.com'));
+        if (email_texto.value.length >= 11 && email_texto.value.indexOf('@') >= 0 && (email_texto.value.endsWith('.br') 
+        || email_texto.value.endsWith('.com'))) {
             inputemail.classList.remove("texto_box");
             inputemail.classList.add("texto_valido");
         } else {
@@ -155,7 +165,7 @@
         // tem que conter .com
     }
     function confirmaremail() {
-        if (email.value == confirmar_email.value) {
+        if (email_texto.value == confirmar_email.value) {
             emailverify.classList.remove("texto_box");
             emailverify.classList.add("texto_valido");
         } else {
@@ -165,8 +175,27 @@
     }
 
     function verificar_senha() {
+        if (inputsenha.value.length >= 8) {
+            div_senha.classList.remove("texto_box");
+            div_senha.classList.add("texto_valido");
+        } else {
+            div_senha.classList.remove("texto_valido");
+            div_senha.classList.add("texto_box");
+
+        }
         // no minimo 8 caracteres
-        // tem que conter 1 numero
+        // tem que conter 1 numero (não implementado)
+    }
+
+    function confirmsenha() {
+        if (inputsenha.value == confirmar_senha.value) {
+            div_confirmarsenha.classList.remove("texto_box");
+            div_confirmarsenha.classList.add("texto_valido");
+        } else {
+            div_confirmarsenha.classList.remove("texto_valido");
+            div_confirmarsenha.classList.add("texto_box");
+
+        }
     }
 
     function proximo() {
@@ -175,8 +204,8 @@
             div_cadastro.style.display = "none";
             div_cadastro2.style.display = "block";
             nome.style.display = "none";
-            email.style.display = "none";
-            senha.style.display = "block";
+            email_texto.style.display = "none";
+            inputsenha.style.display = "block";
             confirmar_senha.style.display = "block";
             botao_proximo.style.display = "none";
             botao_cad.style.display = "block";
@@ -193,6 +222,20 @@
     function dataNasc() {
         data_nascimento.style.display = "none";
         data2.style.display = "block";
+    }
+
+    function cadastrar() {
+        texto_concordar.innerHTML = '';
+        if (div_senha.classList.contains("texto_valido") && div_confirmarsenha.classList.contains("texto_valido")) {
+            if (concordartermos.checked == true) {
+                texto_concordar.innerHTML = '';
+                alert("cadastro realizado");
+            } else {
+                texto_concordar.innerHTML += 'Você precisa concordar com os termos de serviço.'
+            }
+        } else {
+            texto_concordar.innerHTML = 'Sua senha precisa conter no mínimo 8 caracteres'
+        }
     }
 </script>
 
