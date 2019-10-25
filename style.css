@@ -247,11 +247,12 @@ font: 80% Tahoma;
 
 #conteudo2 {
     position: absolute;
-    top: 76vh;
+    top: 78vh;
     left: 0;
     width: 98.8vw;
-    height: 70vh;
-    background-color: transparent;
+    height: 61vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
 }
 
 #topico1 {
@@ -312,8 +313,8 @@ hr {
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     background-color: transparent;
     letter-spacing: 0.1em;
-    color: rgb(0, 0, 0);
-    border: 0.10em solid rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border: 0.10em solid rgb(250, 250, 250);
     transition: .2s ease-in-out;
 }
 .ghost:hover {
@@ -326,9 +327,33 @@ hr {
 #quebra {
     position: absolute;
     left: 40vw;
-    top: 58vh;
+    top: 55vh;
     width: 20vw;
-    border: 0.1vh solid rgb(64, 150, 128);;
+    border: 0.1vh solid rgb(255, 255, 255);;
+}
+
+#rodape_baixo {
+    position: absolute;
+    top: 136.5vh;
+    left: 0vw;
+    background-color: rgb(19, 19, 19);
+    height: 6vh;
+    width: 98.8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    color: white;
+    font-size: 0.9em;
+}
+
+#textoRodapeBaixo {
+    position: relative;
+    left: 1vw;
+    top: 1.6vh;
+}
+
+#textoRodapeBaixo2 {
+    position: relative;
+    left: 56vw;
+    top: 1.6vh;
 }
 
 /* CSS da página Cadastro */
@@ -456,7 +481,7 @@ hr {
     background: none;
 }
 
-#email {
+#email_texto {
     font-size: 16px;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     border: none;
@@ -472,7 +497,7 @@ hr {
     background: none;
 }
 
-#senha {
+#inputsenha {
     font-size: 16px;
     height: 3vh;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
@@ -594,4 +619,134 @@ text-decoration: none;
 
 #termos a:hover {
 text-decoration: underline;
+}
+
+/* CSS da página Termos */
+#texto_concordar {
+    margin-left: 1.5vw;
+    color: red;
+    text-align: center;
+}
+
+#titulo_termos {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    margin-left: 32vw;
+    width: 35vw;
+    background-color: rgba(0, 0, 0, 0.171);
+}
+
+#texto_termos {
+    width: 50vw;
+    margin-left: 24vw;
+}
+
+/* CSS da página Entrar */
+#botao_entrar {
+    position: absolute;
+    left: 45.2vw;
+    top: 50vh;
+    height: 5vh;
+    width: 8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    background-color: rgb(0, 255, 179);
+    letter-spacing: 0.1em;
+    color: rgb(255, 255, 255);
+    border: 0.10em solid rgb(0, 199, 139);
+    z-index: 10;
+    transition: .2s ease-in-out;
+}
+#botao_entrar:hover {
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 192, 144);
+    background-color: rgb(0, 218, 152);
+    transition: background-color 0.5s, border-color 0.5s;
+    transition-timing-function: ease-out;
+    cursor: pointer;
+}
+
+#naotemconta {
+    position: absolute;
+    left: 43vw;
+    top: 57vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-size: 15px;
+    z-index: 99999999999;
+}
+
+#esqueceu_senha {
+    position: absolute;
+    left: 44vw;
+    top: 57vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-size: 15px;
+    z-index: 99999999999;
+}
+
+#div_entrar {
+    padding-left: 3.5vw;
+    padding-top: 1.5vh;
+    background-color: rgb(255, 255, 255);
+    width: 25vw;
+    height: 50vh;
+    position: absolute;
+    left: 37vw;
+    top: 18vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    opacity: .8;
+    box-shadow: 2px 2px 2px 2px rgba(11, 11, 11, 0.521);
+}
+
+#div_entrar2 {
+    padding-left: 3.5vw;
+    padding-top: 1.5vh;
+    background-color: rgb(255, 255, 255);
+    width: 25vw;
+    height: 50vh;
+    position: absolute;
+    left: 37vw;
+    top: 18vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    opacity: .8;
+    box-shadow: 2px 2px 2px 2px rgba(11, 11, 11, 0.521);
+}
+
+
+#botao_proximo_entrar {
+    position: absolute;
+    left: 45.2vw;
+    top: 50vh;
+    height: 5vh;
+    width: 8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    background-color: rgb(0, 255, 179);
+    letter-spacing: 0.1em;
+    color: rgb(255, 255, 255);
+    border: 0.10em solid rgb(0, 199, 139);
+    z-index: 10;
+    transition: .2s ease-in-out;
+}
+#botao_proximo_entrar:hover {
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 192, 144);
+    background-color: rgb(0, 218, 152);
+    transition: background-color 0.5s, border-color 0.5s;
+    transition-timing-function: ease-out;
+    cursor: pointer;
+}
+
+#inputsenha_entrar {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+}
+
+#senha_texto {
+    font-size: 16px;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border: none;
+    outline: none;
+    background: none;
 }
