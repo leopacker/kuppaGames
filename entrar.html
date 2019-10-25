@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuppa Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="rodape">
+        <span id="texto_rodape">(11) 3885-9025 | contato@kuppa.com.br</span>
+    </div>
+    <div id="social">
+        <a href="#">
+            <div class="facebook"></div>
+        </a>
+        <a href="#">
+            <div class="linkedin"></div>
+        </a>
+        <a href="#">
+            <div class="instagram"></div>
+        </a>
+    </div>
+    <div id="entrar">
+        <a id="ent" href="entrar.html">Entrar</a> &nbsp;
+    </div>
+    <div id="cadastro">
+        <a href="cadastrar.html">
+            <button id="btncadastrar">Cadastrar</button>
+        </a>
+    </div>
+    <form id="pesquisa" class="exemplo">
+        <input id="psq_input" type="text" placeholder="Pesquisar..." name="pesquisar">
+        <button type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+
+    <div id="inicio">
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="inicio.html">INÍCIO</a>
+                </li>
+                <li>
+                    <a href="">PROJETOS</a>
+                </li>
+                <li>
+                    <a href="">JOGOS</a>
+                </li>
+                <li>
+                    <a href="">EQUIPE</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="ctd1">
+        <img style="width: 98.8vw" src="https://images7.alphacoders.com/815/815765.jpg" alt="">
+        <div style="display: block" id="div_entrar">
+            <br><br>
+            <h2>Entrar</h2>
+            <br>
+            <div id="div_inputemail" class="texto_box">
+                <input onkeyup="verificarEmail()" id="email_texto" type="text" style="display: block"
+                    placeholder="Email" autofocus>
+            </div>
+            <br>
+            <br>
+        </div>
+        <div style="display: none" id="div_entrar2">
+            <br><br>
+            <h2>Entrar</h2>
+            <br>
+            <div id="div_inputsenha" class="texto_box">
+                <input onkeyup="" id="senha_texto" type="password" style="display: block" placeholder="Senha">
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <button style="display: block" onclick="proximo()" id="botao_proximo_entrar">Próximo</button>
+        <button style="display: none" id="botao_entrar" onclick="">Entrar</button>
+
+        <br>
+        <div style="display: block" id="naotemconta">Não tem conta?
+            <a href="cadastrar.html">Crie uma!</a>
+        </div>
+        <div style="display: none" id="esqueceu_senha">
+            <a href="#">Esqueceu sua senha?</a>
+        </div>
+    </div>
+
+    <div id="ctd2">
+
+    </div>
+    <!-- <hr id="quebra"> -->
+    </div>
+</body>
+
+</html>
+
+<script>
+    function verificarEmail() {
+        if (email_texto.value.indexOf('@') >= 0 && email_texto.value.length >= 8 && (email_texto.value.endsWith('.com') || 
+        email_texto.value.endsWith('.br'))) {
+            div_inputemail.classList.remove("texto_box");
+            div_inputemail.classList.add("texto_valido");
+        } else {
+            div_inputemail.classList.add("texto_box");
+            div_inputemail.classList.remove("texto_valido");
+        }
+    }
+
+    function proximo() {
+        div_entrar.style.display = "none";
+        div_entrar2.style.display = "block";
+        naotemconta.style.display = "none";
+        esqueceu_senha.style.display = "block";
+        botao_proximo_entrar.style.display = "none";
+        botao_entrar.style.display = "block";
+    }
+</script>
