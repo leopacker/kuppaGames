@@ -356,7 +356,41 @@ hr {
     top: 1.6vh;
 }
 
+#rodape_baixo_cad {
+    position: absolute;
+    top: 133vh;
+    left: 0vw;
+    background-color: rgb(19, 19, 19);
+    height: 6vh;
+    width: 98.8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    color: white;
+    font-size: 0.9em;
+}
+
+#textoRodapeBaixo_cad {
+    position: relative;
+    left: 1vw;
+    top: 1.6vh;
+}
+
+#textoRodapeBaixo2_cad {
+    position: relative;
+    left: 56vw;
+    top: 1.6vh;
+}
+
 /* CSS da página Cadastro */
+#mensagem_cad {
+    color: red;
+    text-align: center;
+    /* background-color: blue; */
+    position: relative;
+    /* left: 4vw; */
+    width: 80%;
+    float: left;
+}
+
 #div_cadastro {
     padding-left: 3.5vw;
     padding-top: 1.5vh;
@@ -461,6 +495,10 @@ hr {
     font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
+.teste{
+    background-color: red;
+}
+
 .texto_erro {
     padding-bottom: 5px;
     border-bottom: 1px solid rgb(255, 112, 112);
@@ -479,6 +517,8 @@ hr {
     border:none;
     outline: none;
     background: none;
+    /* text-align: center;
+    width: 95%; */
 }
 
 #email_texto {
@@ -487,6 +527,8 @@ hr {
     border: none;
     outline: none;
     background: none;
+    /* text-align: center;
+    width: 95%; */
 }
 
 #confirmar_email {
@@ -495,6 +537,8 @@ hr {
     border: none;
     outline: none;
     background: none;
+    /* text-align: center;
+    width: 95%; */
 }
 
 #inputsenha {
@@ -623,9 +667,10 @@ text-decoration: underline;
 
 /* CSS da página Termos */
 #texto_concordar {
-    margin-left: 1.5vw;
     color: red;
     text-align: center;
+    width: 95%;
+    float: left;
 }
 
 #titulo_termos {
@@ -641,6 +686,26 @@ text-decoration: underline;
 }
 
 /* CSS da página Entrar */
+#mensagem {
+    color: red;
+    margin-left: 2.9vw;
+    /* background-color: red; */
+}
+
+#mensagem2 {
+    color: red;
+    margin-left: 4.7vw;
+    /* background-color: red; */
+}
+
+#mensagem3 {
+    color: green;
+    width: 80%;
+    float: left;
+    text-align: center;
+    /* background-color: red; */
+}
+
 #botao_entrar {
     position: absolute;
     left: 45.2vw;
@@ -656,6 +721,29 @@ text-decoration: underline;
     transition: .2s ease-in-out;
 }
 #botao_entrar:hover {
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 192, 144);
+    background-color: rgb(0, 218, 152);
+    transition: background-color 0.5s, border-color 0.5s;
+    transition-timing-function: ease-out;
+    cursor: pointer;
+}
+
+#botao_recuperar {
+    position: absolute;
+    left: 45.2vw;
+    top: 50vh;
+    height: 5vh;
+    width: 8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    background-color: rgb(0, 255, 179);
+    letter-spacing: 0.1em;
+    color: rgb(255, 255, 255);
+    border: 0.10em solid rgb(0, 199, 139);
+    z-index: 10;
+    transition: .2s ease-in-out;
+}
+#botao_recuperar:hover {
     color: rgb(255, 255, 255);
     border-color: rgb(0, 192, 144);
     background-color: rgb(0, 218, 152);
@@ -710,6 +798,20 @@ text-decoration: underline;
     box-shadow: 2px 2px 2px 2px rgba(11, 11, 11, 0.521);
 }
 
+#div_entrar3 {
+    padding-left: 3.5vw;
+    padding-top: 1.5vh;
+    background-color: rgb(255, 255, 255);
+    width: 25vw;
+    height: 50vh;
+    position: absolute;
+    left: 37vw;
+    top: 18vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    opacity: .8;
+    box-shadow: 2px 2px 2px 2px rgba(11, 11, 11, 0.521);
+}
+
 
 #botao_proximo_entrar {
     position: absolute;
@@ -743,10 +845,308 @@ text-decoration: underline;
     background: none;
 }
 
+#emailEsqueci {
+    font-size: 16px;
+    height: 3vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border:none;
+    outline: none;
+    background: none;
+}
+
 #senha_texto {
     font-size: 16px;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     border: none;
     outline: none;
     background: none;
+}
+
+/* CSS da página Jogos */
+#jogos_conteudo1 {
+    position: absolute;
+    top: 21vh;
+    left: 0;
+    width: 98.8vw;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+#jogos_conteudo2 {
+    position: absolute;
+    top: 91vh;
+    left: 0;
+    width: 98.8vw;
+    height: 70vh;
+    background-color: rgba(19, 19, 19, 0.9);
+    color: white;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+#jogos_conteudo3 {
+    position: absolute;
+    top: 161vh;
+    left: 0;
+    width: 98.8vw;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+#titulo1 {
+    font-size: 1.3em;
+    margin-top: 27vh;
+    color: white;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+#desc_titulo1 {
+    color: white;
+    width: 70%;
+    float: left;
+    text-align: center;
+    margin-left: 14.5vw;
+}
+
+.btnComprar {
+    height: 4.5vh;
+    width: 15vw;
+    float: left;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    background-color: transparent;
+    letter-spacing: 0.1em;
+    color: rgb(255, 255, 255);
+    border: 0.10em solid rgb(255, 255, 255);
+    z-index: 10;
+    transition: .2s ease-in-out;
+}
+
+.btnComprar:hover {
+    color: rgb(0, 255, 191);
+    border-color: rgb(0, 194, 145);
+    transition: color 0.5s, border-color 0.5s;
+    transition-timing-function: ease-out;
+    cursor: pointer;
+}
+
+#btnComprar_t1 {
+    position: absolute;
+    left: 42vw;
+    top: 58vh;
+}
+
+#btnComprar_t2 {
+    position: absolute;
+    left: 42vw;
+    top: 62vh;
+}
+
+#btnComprar_t3 {
+    position: absolute;
+    left: 42vw;
+    top: 57vh;
+}
+
+#logo_jogo1 {
+    position: absolute;
+    top: 2vh;
+    left: 37vw;
+    width: 25vw
+}
+
+#logo_jogo2 {
+    position: absolute;
+    top: 0vh;
+    left: 41vw;
+    width: 18vw
+}
+
+#logo_jogo3 {
+    position: absolute;
+    top: 3vh;
+    left: 35.5vw;
+    width: 27vw
+}
+
+#titulo2 {
+    font-size: 1.3em;
+    margin-top: 37vh;
+    color: white;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+#titulo3 {
+    font-size: 1.3em;
+    margin-top: 24vh;
+    color: white;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+#desc_titulo2 {
+    color: white;
+    width: 70%;
+    float: left;
+    text-align: center;
+    margin-left: 14.5vw;
+}
+
+#desc_titulo3 {
+    color: white;
+    width: 70%;
+    float: left;
+    text-align: center;
+    margin-left: 14.5vw;
+}
+
+#rodape_baixo_jogos {
+    position: absolute;
+    top: 230vh;
+    left: 0vw;
+    background-color: rgb(19, 19, 19);
+    height: 6vh;
+    width: 98.8vw;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    color: white;
+    font-size: 0.9em;
+}
+
+#textoRodapeBaixo_jogos {
+    position: relative;
+    left: 1vw;
+    top: 1.6vh;
+}
+
+#textoRodapeBaixo2_jogos {
+    position: relative;
+    left: 56vw;
+    top: 1.6vh;
+}
+
+/* CSS da página História */
+#hconteudo1 {
+    position: absolute;
+    top: 21vh;
+    left: 0;
+    width: 98.8vw;
+    height: 78vh;
+    background-color: rgba(0, 0, 0, 0.089);
+    
+}
+
+#hconteudo2 {
+    position: absolute;
+    top: 37vh;
+    left: 0;
+    width: 98.8vw;
+    height: 85vh;
+    background-color: rgba(0, 0, 0, 0.425);
+    color: white;
+    z-index: 9999;
+    color: white;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+#img_historia {
+    width: 17vw;
+    position: relative;
+    left: 41vw;
+}
+
+#titulo_historia {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#desc_historia {
+    width: 70%;
+    float: left;
+    text-align: center;
+    margin-left: 14.5vw;
+    margin-top: 3vh;
+}
+
+#btnEquipe {
+    position: relative;
+    top: 6vh;
+    left: 27.5vw;
+}
+
+/* CSS da página Painel */
+#div_painel {
+    padding-left: 3.5vw;
+    padding-top: 1.5vh;
+    background-color: rgb(255, 255, 255);
+    width: 25vw;
+    height: 48vh;
+    position: absolute;
+    left: 37vw;
+    top: 5vh;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    opacity: .8;
+    box-shadow: 2px 2px 2px 2px rgba(11, 11, 11, 0.521);
+}
+
+#conteudo1_painel {
+    position: absolute;
+    top: 21vh;
+    left: 0;
+    width: 98.8vw;
+    height: 147vh;
+    /* background-color: yellow; */
+    background: url('./images/fundopainel.jpg');
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+#conteudo2_painel {
+    position: absolute;
+    top: 102vh;
+    left: 0;
+    width: 98.8vw;
+    height: 66vh;
+    background-color: rgba(0, 0, 0, 0.548);
+    color: white;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+#texto_aviso {
+    position: absolute;
+    top: 4vh;
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+}
+
+#img_work {
+    position: relative;
+    top: 10vh;
+    left: 36.8vw;
+    width: 25vw;
+}
+
+#welcome {
+    position: relative;
+    top: 1vh;
+    width: 80%;
+    float: left;
+    text-align: center;
+}
+
+#nomeWelcome {
+    position: relative;
+    top: 2vh;
+    font-size: 1.1em;
+    width: 80%;
+    float: left;
+    text-align: center;
 }
