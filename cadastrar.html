@@ -8,6 +8,8 @@
     <title>Kuppa Games</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -15,13 +17,13 @@
         <span id="texto_rodape">(11) 3885-9025 | contato@kuppa.com.br</span>
     </div>
     <div id="social">
-        <a href="#">
+        <a href="https://www.facebook.com/kuppaoficial/">
             <div class="facebook"></div>
         </a>
         <a href="#">
             <div class="linkedin"></div>
         </a>
-        <a href="#">
+        <a href="http://instagram.com/kuppa.games">
             <div class="instagram"></div>
         </a>
     </div>
@@ -50,7 +52,7 @@
                     <a href="">PROJETOS</a>
                 </li>
                 <li>
-                    <a href="">JOGOS</a>
+                    <a href="jogos.html">JOGOS</a>
                 </li>
                 <li>
                     <a href="">EQUIPE</a>
@@ -65,29 +67,31 @@
 
             <h2>Criar conta</h2>
             <font size="2" color="grey">* campos obrigatórios</font><br><br>
-            <div id="inputnome" class="texto_box">
-                <input onkeyup="verificar_nome()" style="display: block" id="nome" type="text"
-                    placeholder="Nome de usuário*" autofocus>
-            </div>
-            <br>
-            <div id="inputemail" class="texto_box">
-                <input onkeyup="verificar_email()" id="email_texto" type="text" style="display: block"
-                    placeholder="Email*">
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <div id="inputnome" class="texto_box">
+                    <input onkeyup="verificar_nome()" style="display: block" name="Usuario" id="nome"
+                        placeholder="Nome de usuário*" autofocus>
+                </div>
+                <br>
+                <div id="inputemail" class="texto_box">
+                    <input onkeyup="verificar_email()" style="display: block" name="email" id="email_texto" 
+                        placeholder="Email*">
 
-            </div>
-            <br>
-            <div id="emailverify" class="texto_box">
-                <input onkeyup="confirmaremail()" id="confirmar_email" style="display: block" type="email"
-                    placeholder="Confirme o email*">
-            </div>
-            <br>
+                </div>
+                <br>
+                <div id="emailverify" class="texto_box">
+                    <input onkeyup="confirmaremail()" id="confirmar_email" style="display: block" type="email"
+                        placeholder="Confirme o email*">
+                </div>
+                <br>
+                <span id="mensagem_cad"></span>
         </div>
         <div style="display: none" id="div_cadastro2">
             <h2>Criar conta</h2>
             <font size="2" color="grey">* campos obrigatórios</font>
             <br><br>
             <div id="div_senha" class="texto_box">
-                <input onkeyup="verificar_senha()" style="display: block" id="inputsenha" type="password"
+                <input onkeyup="verificar_senha()" style="display: block" name="senha" id="inputsenha" type="password"
                     placeholder="Senha*">
             </div>
             <br>
@@ -97,26 +101,25 @@
             </div>
             <br>
             <div class="texto_box">
-                <input style="display: block" placeholder="Data de nascimento" onfocus="dataNasc()"
-                    id="data_nascimento">
-                <input style="display: none" id="data2" type="date">
+                <input style="display: block" placeholder="Data de nascimento" name="dataNasc" id="data_nascimento">
+                <!-- <input style="display: none" id="data2" type="date"> -->
             </div>
             <br>
             <div class="texto_box">
-                <input style="display: block" id="jogo_favorito" type="text" placeholder="Jogo favorito">
+                <input style="display: block" id="jogo_favorito" name="jogoFav" placeholder="Jogo favorito">
             </div>
             <br><br>
             <div style="display: block" id="concordar_termos">
                 <input id="concordartermos" type="checkbox">
                 Concordo com os <b id="termos"><a href="termos.html">termos de serviço e política da
-                empresa</a></b>
+                        empresa</a></b><br><br>
                 <span style="text-align: center" id="texto_concordar"></span>
             </div>
-
+            </form>
         </div>
 
         <button style="display: block" onclick="proximo()" id="botao_proximo">Próximo</button>
-        <button style="display: none" id="botao_cad" onclick="cadastrar()">Cadastrar</button>
+        <button style="display: none" id="botao_cad" onclick="cadastrarOld()">Cadastrar</button>
 
         <br>
         <div style="display: block" id="jatemconta">Já tem conta?
@@ -132,9 +135,9 @@
     </div>
     <!-- <hr id="quebra"> -->
     </div>
-    <div id="rodape_baixo">
-        <span id="textoRodapeBaixo">Kuppa Games © 2019. Todos os direitos reservados.</span>
-        <span id="textoRodapeBaixo2">Desenvolvido por Leonardo Packer.</span>
+    <div id="rodape_baixo_cad">
+        <span id="textoRodapeBaixo_cad">Kuppa Games © 2019. Todos os direitos reservados.</span>
+        <span id="textoRodapeBaixo2_cad">Desenvolvido por Leonardo Packer.</span>
     </div>
 </body>
 
@@ -156,8 +159,8 @@
         // console.log('email_texto.value.indexOf(@) >= 0', email_texto.value.indexOf('@') >= 0);
         // console.log('email_texto.value.endsWith(.br)', email_texto.value.endsWith('.br'));
         // console.log('email_texto.value.endsWith(.com)', email_texto.value.endsWith('.com'));
-        if (email_texto.value.length >= 11 && email_texto.value.indexOf('@') >= 0 && (email_texto.value.endsWith('.br') 
-        || email_texto.value.endsWith('.com'))) {
+        if (email_texto.value.length >= 11 && email_texto.value.indexOf('@') >= 0 && (email_texto.value.endsWith('.br')
+            || email_texto.value.endsWith('.com'))) {
             inputemail.classList.remove("texto_box");
             inputemail.classList.add("texto_valido");
         } else {
@@ -203,24 +206,36 @@
     }
 
     function proximo() {
-        if (inputnome.classList.contains("texto_valido") && inputemail.classList.contains("texto_valido")
-            && emailverify.classList.contains("texto_valido")) {
-            div_cadastro.style.display = "none";
-            div_cadastro2.style.display = "block";
-            nome.style.display = "none";
-            email_texto.style.display = "none";
-            inputsenha.style.display = "block";
-            confirmar_senha.style.display = "block";
-            botao_proximo.style.display = "none";
-            botao_cad.style.display = "block";
-            inputnome.classList.remove("texto_valido");
-            inputnome.classList.add("texto_box");
-            inputemail.classList.remove("texto_valido");
-            inputemail.classList.add("texto_box");
-            jatemconta.style.display = "none";
-            jatemconta2.style.display = "block";
-            concordar_termos.style.display = "block";
+        // if (inputnome.classList.contains("texto_valido") && inputemail.classList.contains("texto_valido")
+        //     && emailverify.classList.contains("texto_valido")) {   
+        if (inputnome.classList.contains("texto_valido")) {
+            if (inputemail.classList.contains("texto_valido")) {
+                if (emailverify.classList.contains("texto_valido")) {
+                    div_cadastro.style.display = "none";
+                    div_cadastro2.style.display = "block";
+                    nome.style.display = "none";
+                    email_texto.style.display = "none";
+                    inputsenha.style.display = "block";
+                    confirmar_senha.style.display = "block";
+                    botao_proximo.style.display = "none";
+                    botao_cad.style.display = "block";
+                    inputnome.classList.remove("texto_valido");
+                    inputnome.classList.add("texto_box");
+                    inputemail.classList.remove("texto_valido");
+                    inputemail.classList.add("texto_box");
+                    jatemconta.style.display = "none";
+                    jatemconta2.style.display = "block";
+                    concordar_termos.style.display = "block";
+                } else {
+                    mensagem_cad.innerHTML = 'Confirme o email'
+                }
+            } else {
+                mensagem_cad.innerHTML = 'Insira um email válido'
+            }
+        } else {
+            mensagem_cad.innerHTML = 'Insira um nome válido'
         }
+
     }
 
     function dataNasc() {
@@ -228,18 +243,48 @@
         data2.style.display = "block";
     }
 
-    function cadastrar() {
+    function cadastrarOld() {
         texto_concordar.innerHTML = '';
-        if (div_senha.classList.contains("texto_valido") && div_confirmarsenha.classList.contains("texto_valido")) {
-            if (concordartermos.checked == true) {
-                texto_concordar.innerHTML = '';
-                alert("cadastro realizado");
+        if (div_senha.classList.contains("texto_valido")) {
+            if (div_confirmarsenha.classList.contains("texto_valido")) {
+                if (concordartermos.checked == true) {
+                    texto_concordar.innerHTML = '';
+                    alert("Cadastro realizado!");
+                    cadastrar();
+                } else {
+                    texto_concordar.innerHTML += 'Você precisa concordar com os termos de serviço.'
+                }
             } else {
-                texto_concordar.innerHTML += 'Você precisa concordar com os termos de serviço.'
+                texto_concordar.innerHTML = 'Confirme sua senha.'
             }
         } else {
-            texto_concordar.innerHTML = 'Sua senha precisa conter no mínimo 8 caracteres'
+            texto_concordar.innerHTML = 'Sua senha precisa conter no mínimo 8 caracteres.'
         }
+    }
+
+    function cadastrar() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='entrar.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                // finalizar_aguardar();
+            }
+        });
+
+        return false;
     }
 </script>
 
