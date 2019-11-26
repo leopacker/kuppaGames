@@ -8,6 +8,8 @@
     <title>Kuppa Games</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -15,13 +17,13 @@
         <span id="texto_rodape">(11) 3885-9025 | contato@kuppa.com.br</span>
     </div>
     <div id="social">
-        <a href="#">
+        <a href="https://www.facebook.com/kuppaoficial/">
             <div class="facebook"></div>
         </a>
         <a href="#">
             <div class="linkedin"></div>
         </a>
-        <a href="#">
+        <a href="http://instagram.com/kuppa.games">
             <div class="instagram"></div>
         </a>
     </div>
@@ -50,7 +52,7 @@
                     <a href="">PROJETOS</a>
                 </li>
                 <li>
-                    <a href="">JOGOS</a>
+                    <a href="jogos.html">JOGOS</a>
                 </li>
                 <li>
                     <a href="">EQUIPE</a>
@@ -60,39 +62,55 @@
     </div>
 
     <div id="ctd1">
-        <img style="width: 98.8vw" src="https://images7.alphacoders.com/815/815765.jpg" alt="">
+        <!-- <form id="form_login" method="post" onsubmit="return entrar()"> -->
+        <img style="width: 98.8vw" src="images/fundoentrar.jpg" alt="">
         <div style="display: block" id="div_entrar">
             <br><br>
             <h2>Entrar</h2>
             <br>
             <div id="div_inputemail" class="texto_box">
-                <input onkeyup="verificarEmail()" id="email_texto" type="text" style="display: block"
+                <input onkeyup="verificarEmail()" id="email_texto" name="email" style="display: block"
                     placeholder="Email" autofocus>
             </div>
             <br>
-            <br>
+
+            <span id="mensagem"></span>
         </div>
         <div style="display: none" id="div_entrar2">
             <br><br>
             <h2>Entrar</h2>
             <br>
             <div id="div_inputsenha" class="texto_box">
-                <input onkeyup="" id="senha_texto" type="password" style="display: block" placeholder="Senha">
+                <input onkeyup="verificarSenha()" id="senha_texto" name="senha" type="password" style="display: block"
+                    placeholder="Senha">
             </div>
             <br>
-            <br>
+            <span id="mensagem2"></span>
         </div>
 
+        <div style="display: none" id="div_entrar3">
+            <br><br>
+            <h2>Recuperar senha</h2>
+            <br>
+            <div id="divesqueci" class="texto_box">
+                <input onkeyup="esqSenha()" id="emailEsqueci" type="text" style="display: block"
+                    placeholder="Insira seu email">
+            </div>
+            <br>
+            <span id="mensagem3"></span>
+        </div>
         <button style="display: block" onclick="proximo()" id="botao_proximo_entrar">Próximo</button>
-        <button style="display: none" id="botao_entrar" onclick="">Entrar</button>
+        <button onclick="entrarbtn()" style="display: none" id="botao_entrar" onclick="">Entrar</button>
+        <button onclick="enviar_rec()" style="display: none" id="botao_recuperar" onclick="">Enviar</button>
 
         <br>
         <div style="display: block" id="naotemconta">Não tem conta?
             <a href="cadastrar.html">Crie uma!</a>
         </div>
         <div style="display: none" id="esqueceu_senha">
-            <a href="#">Esqueceu sua senha?</a>
+            <a href="#" onclick="esqueci_senha()">Esqueceu sua senha?</a>
         </div>
+        <!-- </form> -->
     </div>
 
     <div id="ctd2">
@@ -100,9 +118,9 @@
     </div>
     <!-- <hr id="quebra"> -->
     </div>
-    <div id="rodape_baixo">
-        <span id="textoRodapeBaixo">Kuppa Games © 2019. Todos os direitos reservados.</span>
-        <span id="textoRodapeBaixo2">Desenvolvido por Leonardo Packer.</span>
+    <div id="rodape_baixo_cad">
+        <span id="textoRodapeBaixo_cad">Kuppa Games © 2019. Todos os direitos reservados.</span>
+        <span id="textoRodapeBaixo2_cad">Desenvolvido por Leonardo Packer.</span>
     </div>
 </body>
 
@@ -110,8 +128,8 @@
 
 <script>
     function verificarEmail() {
-        if (email_texto.value.indexOf('@') >= 0 && email_texto.value.length >= 8 && (email_texto.value.endsWith('.com') || 
-        email_texto.value.endsWith('.br'))) {
+        if (email_texto.value.indexOf('@') >= 0 && email_texto.value.length >= 8 && (email_texto.value.endsWith('.com') ||
+            email_texto.value.endsWith('.br'))) {
             div_inputemail.classList.remove("texto_box");
             div_inputemail.classList.add("texto_valido");
         } else {
@@ -121,11 +139,106 @@
     }
 
     function proximo() {
-        div_entrar.style.display = "none";
-        div_entrar2.style.display = "block";
-        naotemconta.style.display = "none";
-        esqueceu_senha.style.display = "block";
-        botao_proximo_entrar.style.display = "none";
-        botao_entrar.style.display = "block";
+        if (div_inputemail.classList.contains("texto_valido")) {
+            div_entrar.style.display = "none";
+            div_entrar2.style.display = "block";
+            naotemconta.style.display = "none";
+            esqueceu_senha.style.display = "block";
+            botao_proximo_entrar.style.display = "none";
+            botao_entrar.style.display = "block";
+        } else {
+            mensagem.innerHTML = 'Insira um email válido.'
+        }
     }
+
+    function verificarSenha() {
+        if (senha_texto.value.length >= 8) {
+            div_inputsenha.classList.remove("texto_box");
+            div_inputsenha.classList.add("texto_valido")
+        }
+    }
+
+    function entrarbtn() {
+        // if (div_inputsenha.classList.contains("texto_valido")) {
+        //     alert('Login realizado')
+        // } else {
+        //     mensagem.innerHTML = 'Senha incorreta'
+        // }
+        if (senha_texto.value == 'bandtec123') {
+            alert('Login realizado!')
+        } else {
+            mensagem2.innerHTML = 'Senha incorreta';
+        }
+    }
+
+    function esqueci_senha() {
+        div_entrar2.style.display = "none";
+        div_entrar3.style.display = "block";
+        botao_entrar.style.display = "none";
+        botao_recuperar.style.display = "block";
+        esqueceu_senha.style.display = "none";
+    }
+
+    function esqSenha() {
+        console.log("entrei na func");
+        // console.log('email_texto.value.lenght >= 11', emailEsqueci.value.length >= 11);
+        // console.log('email_texto.value.indexOf(@) >= 0', emailEsqueci.value.indexOf('@') >= 0);
+        // console.log('email_texto.value.endsWith(.br)', emailEsqueci.value.endsWith('.br'));
+        // console.log('email_texto.value.endsWith(.com)', emailEsqueci.value.endsWith('.com'));
+        // if (emailEsqueci.length >= 11 && emailEsqueci.value.indexOf('@') >= 0 && (emailEsqueci.value.endsWith('.br')
+        //     || emailEsqueci.value.endsWith('.com'))) 
+        if (emailEsqueci.value.length >= 11) {
+            if (emailEsqueci.value.indexOf('@') >= 0) {
+                if (emailEsqueci.value.endsWith('.com') || emailEsqueci.value.endsWith('.br')) {
+                    console.log("deu certo");
+                    divesqueci.classList.remove("texto_box");
+                    divesqueci.classList.add("texto_valido");
+                } else {
+                    divesqueci.classList.remove("texto_valido");
+                    divesqueci.classList.add("texto_box");
+                }
+            }
+        }
+    }
+
+    function enviar_rec() {
+        if (divesqueci.classList.contains("texto_valido")) {
+            mensagem3.innerHTML = 'Email para recuperação enviado!'
+        } else {
+
+        }
+    }
+
+    function entrar() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.nomeUsuario;
+                    sessionStorage.nome_usuario_meuapp = json.nomeUsuario;
+
+                    window.location.href = 'painel.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                response.text().then(texto => {
+                    console.error(texto);
+                    // finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
 </script>
